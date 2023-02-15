@@ -91,7 +91,8 @@ router.get("/", async (request, res) => {
           $or: [
             {
               title: {
-                $regex: search
+                $regex: new RegExp(search),
+                $options: "i"
               }
             },
             {
